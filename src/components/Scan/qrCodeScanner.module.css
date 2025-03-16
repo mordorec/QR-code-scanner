@@ -1,0 +1,16 @@
+body {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.result {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
