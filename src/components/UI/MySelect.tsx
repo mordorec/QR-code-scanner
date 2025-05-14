@@ -1,6 +1,17 @@
-const MySelect = ({options, defaultValue, value, onChange}) => {
+import React from 'react'
+import { MySelectProps } from '../../entities'
+import { styled } from '@linaria/react';
+
+const Select = styled.select`
+    width: 180px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+`;
+
+const MySelect = ({options, defaultValue, value, onChange}: MySelectProps) => {
     return (
-        <select 
+        <Select 
             onChange={event => onChange(event.target.value)}
             value={value}
         >
@@ -10,7 +21,7 @@ const MySelect = ({options, defaultValue, value, onChange}) => {
                     {option.name}
                 </option>
            )}
-        </select>
+        </Select>
     );
 }
 

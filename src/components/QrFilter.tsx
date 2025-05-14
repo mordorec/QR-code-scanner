@@ -1,9 +1,20 @@
-import MySelect from "../UI/select/MySelect";
-import MyInput from "../UI/input/MyInput";
+import MySelect from "./UI/MySelect";
+import MyInput from "./UI/MyInput";
+import React from 'react'
+import { QrFilterProps } from '../entities'
+import { css } from '@linaria/core';
 
-const QrFilter = ({filter, setFilter}) => {
+const container = css`
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+`;
+
+const QrFilter = ({filter, setFilter}: QrFilterProps) => {
     return (
-        <div>
+        <div className={container}>
             <MyInput
                 placeholder='Поиск...'
                 value={filter.query}
@@ -16,7 +27,7 @@ const QrFilter = ({filter, setFilter}) => {
                     {value: 'title', name: 'По названию'},
                     {value: 'date', name: 'По дате создания'}
                 ]}
-                onChange={selectedSort => setFilter({...filter, sort: selectedSort})}
+                onChange={(selectedSort: string) => setFilter({...filter, sort: selectedSort})}
             />
         </div>
     );

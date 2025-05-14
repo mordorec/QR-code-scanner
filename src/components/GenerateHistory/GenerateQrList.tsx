@@ -1,6 +1,8 @@
+import React from 'react';
 import { GenerateQrItem } from './GenerateQrItem';
+import { QrListProps } from '../../entities';
 
-export const GenerateQrList = ({ sortedAndSearchedQRs, onRemove, onOpen }) => {
+export const GenerateQrList = ({ sortedAndSearchedQRs, onRemove, onOpen }: QrListProps) => {
     return (
         <>
             {sortedAndSearchedQRs.length ? (

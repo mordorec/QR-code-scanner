@@ -1,9 +1,10 @@
-import { QrCodeGenerator } from './components/Generate/QrCodeGenerator';
-import { QrCodeScanner } from './components/Scan/QrCodeScanner';
+import { QrCodeGenerator } from './components/QrCodeGenerator';
+import { QrCodeScanner } from './components/QrCodeScanner';
 import { GenerateHistory } from './components/GenerateHistory/GenerateHistory';
 import { ScanHistory } from './components/ScanHistory/ScanHistory';
-import { Navigation } from './components/Navigation/Navigation';
+import { Navigation } from './components/Navigation';
 import { Routes, Route } from 'react-router-dom'; 
+import React from 'react'
 
 const Layout = () => {
     return (

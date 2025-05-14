@@ -1,6 +1,7 @@
 import {useMemo} from 'react'
+import { Item } from '../../entities'
 
-export const useSortedQRs = (data, sort) => {
+const useSortedQRs = (data: Item[], sort: string): Item[] => {
     const sortedQRs = useMemo(() => {
         let sortedData = [...data];
 
@@ -8,7 +9,7 @@ export const useSortedQRs = (data, sort) => {
             if (sort === 'title') {
                 return sortedData.sort((a, b) => a.title.localeCompare(b.title));
             } else if (sort === 'date') {
-                return sortedData.sort((a, b) => new Date(a.date) - new Date(b.date));
+                return sortedData.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
             }
         }
         return data
@@ -17,10 +18,13 @@ export const useSortedQRs = (data, sort) => {
     return sortedQRs
 }
 
-export const useQRs = (data, sort, query) => {
+export const useQRs = (data: Item[], sort: string, query: string): Item[] => {
     const sortedQRs = useSortedQRs(data, sort)
     const sortedAndSearchedQRs = useMemo(() => {
-        return sortedQRs.filter(qr => qr.title.toLowerCase().includes(query.toLowerCase()))
+        return sortedQRs.filter(qr => {
+            const title = qr.title || '';
+            return title.toLowerCase().includes(query.toLowerCase());
+        });
     }, [query, sortedQRs])
 
     return sortedAndSearchedQRs
